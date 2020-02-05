@@ -5,7 +5,6 @@
 import java.io.*;
 import java.util.*;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import com.google.gson.reflect.TypeToken;
@@ -23,7 +22,7 @@ public class Inventory implements IInventory{
     List<String> barcodeList = null;
     public  Map<String,GroceryItem> readItemsFromFile() {
         Map<String,GroceryItem> groceryItemsMap = new HashMap<String,GroceryItem>();
-        File jsonFile = new File("groceryItem.json");
+        File jsonFile = new File("C:\\Users\\Behrooz\\Mainworkspace\\SupermarketCheckout - JSON\\groceryItem.json");
         try {
             BufferedReader bufferReader = new BufferedReader(new FileReader(jsonFile));
             Gson gson = new Gson();
@@ -44,6 +43,7 @@ public class Inventory implements IInventory{
 
         } catch (IOException ioe){
             logger.error("The Inventory file is corrupted or not present");
+            ioe.printStackTrace();
         }
         return groceryItemsMap;
     }
