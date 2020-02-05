@@ -43,7 +43,8 @@ public class Inventory implements IInventory{
 
         } catch (IOException ioe){
             logger.error("The Inventory file is corrupted or not present");
-            ioe.printStackTrace();
+            logger.error(ioe.getStackTrace());
+
         }
         return groceryItemsMap;
     }
